@@ -3,15 +3,18 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 /* global $ */
 $("#search-button").click(function(){
-    var searchTerm = ("search-term").val();
+    alert("hello");
+    var searchTerm = $("#search-term").val();
   $.ajax({
   url: "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&rating=pg&api_key=dc6zaTOxFJmzC",
 method: "GET",
   success: function(response) {
       var url = response.data[0].images.original.url;
-      alert(url);
  $('body').append('<img src="' + url + '">');
   },
+  error:function() {
+      alert("error");
+  }
 });
 });
 
